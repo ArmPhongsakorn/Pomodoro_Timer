@@ -1,7 +1,8 @@
 import tkinter as tk
+import time
 
-WORK_MIN = 25  # 25 for work time
-BREAK_MIN = 5  # 5 for break (stand up, walk and stretching)
+WORK_MIN = 1  # 25 for work time
+BREAK_MIN = 1  # 5 for break (stand up, walk and stretching)
 
 class PomodoroTimer:
     def __init__(self, root):
@@ -73,12 +74,19 @@ class PomodoroTimer:
                 self.timer_id = self.root.after(1000, self.countdown)
             else:
                 if self.is_work_time:
+                    # Sound to notify
+                    self.root.bell()
+                    time.sleep(0.5)
+                    self.root.bell()
                     # Switch to break
                     self.is_work_time = False
                     self.time_left = BREAK_MIN * 60
                     self.label_message.config(text=f"Session {self.session} - Break time:", fg='#06d602')
                     self.timer_id = self.root.after(1000, self.countdown)
                 else:
+                    self.root.bell()
+                    time.sleep(0.5)
+                    self.root.bell()
                     # begin the next session
                     self.session += 1
                     self.time_left = WORK_MIN * 60
