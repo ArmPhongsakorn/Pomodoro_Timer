@@ -1,8 +1,8 @@
 import tkinter as tk
 import time
 
-WORK_MIN = 1  # 25 for work time
-BREAK_MIN = 1  # 5 for break (stand up, walk and stretching)
+WORK_MIN = 25  # 25 for work time
+BREAK_MIN = 5  # 5 for break (stand up, walk and stretching)
 
 class PomodoroTimer:
     def __init__(self, root):
