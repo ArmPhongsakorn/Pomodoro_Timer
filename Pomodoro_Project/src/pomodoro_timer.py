@@ -3,6 +3,7 @@ import time
 
 WORK_MIN = 25  # 25 for work time
 BREAK_MIN = 5  # 5 for break (stand up, walk and stretching)
+LONG_BREAK_MIN = 30 # 30 for long break
 
 class PomodoroTimer:
     def __init__(self, root):
@@ -78,11 +79,20 @@ class PomodoroTimer:
                     self.root.bell()
                     time.sleep(0.5)
                     self.root.bell()
+                    # Switch to long break
+                    if self.session % 4 ==0:
+                        time.sleep(0.5)
+                        self.root.bell()
+                        self.is_work_time = False
+                        self.time_left = LONG_BREAK_MIN * 60
+                        self.label_message.config(text=f"Session {self.session} - Long-Break time:", fg='#fcad03')
+                        self.timer_id = self.root.after(1000, self.countdown)
                     # Switch to break
-                    self.is_work_time = False
-                    self.time_left = BREAK_MIN * 60
-                    self.label_message.config(text=f"Session {self.session} - Break time:", fg='#06d602')
-                    self.timer_id = self.root.after(1000, self.countdown)
+                    else:
+                        self.is_work_time = False
+                        self.time_left = BREAK_MIN * 60
+                        self.label_message.config(text=f"Session {self.session} - Break time:", fg='#06d602')
+                        self.timer_id = self.root.after(1000, self.countdown)
                 else:
                     self.root.bell()
                     time.sleep(0.5)
