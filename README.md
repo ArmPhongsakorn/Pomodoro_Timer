@@ -69,7 +69,7 @@ The Pomodoro Technique is a time management method that breaks work into interva
 - README.md – Project description
 
 # 📄 License
-- This project is licensed under the GPL 3.0 License. 
+- This project is licensed under the GNU General Public License v3.0. 
 
 # 👨‍💻 Author
 - ArmPhongsakorn
