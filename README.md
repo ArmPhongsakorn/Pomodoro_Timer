@@ -5,7 +5,8 @@ A simple desktop application that helps you stay productive and healthy by apply
 ## 📟 Features
 
 - 25-minute work session timer 
-- 5-minute break session timer 
+- 5-minute break session timer
+- 30-minute long break session timer
 - Simple graphical interface using `tkinter`
 - Start, Pause, and Reset buttons
 - Bell sound when each session ends and session begin (`self.root.bell()`)
@@ -21,11 +22,12 @@ When you run the app, a window will appear showing:
 ## 📖 How to Use
 
 1. Click **Start** to begin a 25-minute work session.
-2. When the work session ends:
-   - A 2 short **bell sound** will play.
+2. When the work session starts:
+   - A 2 short **bell sounds** will play.
    - A 5-minute break session begins automatically.
 3. After the break ends:
-   - Another bell sound will play.
+   - 2 **bell sounds** will play to break (5 minuntes).
+   - Every 4 sessions there are 3 **bell sounds** to notify for a long break (30 minutes).
    - A new work session begins (session count increases).
 4. Use **Pause** to temporarily stop the timer.
 5. Use **Reset** to restart everything to the initial state.
